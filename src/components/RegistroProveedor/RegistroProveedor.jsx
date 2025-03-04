@@ -1,54 +1,49 @@
-export function RegistroProveedor(){
-    return(
-        <>
-            <form className="border rounded p-5">
+import { useState } from "react";
 
-                <div className="mb-3">
-                    <input type="text" className="form-control" placeholder="Nombres"/>
-                </div>
+export function RegistroProveedor() {
+  const [form, setForm] = useState({
+    nombre: "",
+    documento: "",
+    direccion: "",
+    ciudad: "",
+    representante: "",
+    telefono: "",
+    correo: "",
+    costo: "",
+    fecha: "",
+    descripcion: "",
+  });
 
-                <div className="mb-3">
-                    <input type="text" className="form-control" placeholder="Documento"/>
-                </div>
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
-                <div className="mb-3">
-                    <input type="text" className="form-control" placeholder="direccion"/>
-                </div>
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Formulario Enviado ✅", form);
+    alert("Tilin, el formulario se ha enviado exitosamente 🔥🔥");
+  };
 
-                <div className="mb-3">
-                    <input type="text" className="form-control" placeholder="Ciudad"/>
-                </div>
+  return (
+    <form className="border rounded p-5 shadow-lg bg-light" onSubmit={handleSubmit}>
+      <h3 className="text-center fw-bold mb-4 text-primary">Registro Proveedor Tilin 🔥</h3>
 
-                <div className="mb-3">
-                    <input type="text" className="form-control" placeholder="Representante"/>
-                </div>
+      {Object.keys(form).map((campo, index) => (
+        <div key={index} className="mb-3">
+          <input
+            type={campo === "fecha" ? "date" : campo === "costo" ? "number" : "text"}
+            name={campo}
+            className="form-control"
+            placeholder={campo.charAt(0).toUpperCase() + campo.slice(1)}
+            onChange={handleChange}
+            required
+          />
+        </div>
+      ))}
 
-                <div className="mb-3">
-                    <input type="text" className="form-control" placeholder="Telefono Contacto"/>
-                </div>
-
-                <div className="mb-3">
-                    <input type="email" className="form-control" placeholder="correo"/>
-                </div>
-
-                <div className="mb-3">
-                    <input type="number" className="form-control" placeholder="Costo Envio"/>
-                </div>
-
-                <div className="mb-3">
-                    <label htmlFor=""> Fecha de Envio</label>
-                    <input type="date" className="form-control"placeholder="Fecha de Envio"  name="" id="" />
-                </div>
-
-                <div className="mb-3">
-                    <textarea type="text" className="form-control" placeholder="Descripcion"/>
-                </div>
-
-                <button className="btn btn-primary w-100">Enviar</button>
-            </form>
-        
-        
-        </>
-
-    )
+      <button className="btn btn-primary w-100 mt-3" type="submit">
+        Enviar 🚀
+      </button>
+    </form>
+  );
 }
