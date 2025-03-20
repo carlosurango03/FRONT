@@ -1,7 +1,17 @@
 import "./Home.css";
 import { RegistroProveedor } from "../RegistroProveedor/RegistroProveedor";
 
+import { use, useEffect, useState } from "react";
+
+
+
 export function Home() {
+  //creo dos variables de estado para consumir el api 
+const{datosProveedores, setDatosProveedor}=([])
+const{carga, setCarga}=useState(false)
+
+useEffect(()=>{},[])
+
   return (
     <>
       <section className="banner text-center d-flex align-items-center justify-content-center">
