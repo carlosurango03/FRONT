@@ -1,0 +1,38 @@
+.banner-logistica {
+    background-image: url("../../assets/Ronaldo.jpeg");
+    background-position: center center; /* Centrar bien la imagen */
+    background-size: cover; /* Ajusta la imagen para que se vea completa */
+    background-attachment: fixed;
+    height: 70vh; /* Ajusta la altura para que no sea tan alta */
+    position: relative;
+    display: flex;
+    align-items: center; /* Centra verticalmente el contenido */
+    justify-content: center; /* Centra horizontalmente el contenido */
+}
+
+.banner-logistica::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Oscurece la imagen */
+    z-index: 1;
+}
+
+.informacion-logistica {
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.664);
+    border-radius: 0.5rem;
+    padding: 2vh;
+    text-align: center;
+    position: relative; 
+    z-index: 2; /* Que el texto esté encima del fondo oscuro */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8); /* Sombrilla de papu */
+    transition: transform 0.3s ease-in-out;
+}
+
+.informacion-logistica:hover {
+    transform: scale(1.1); /* Efecto tilín al pasar el mouse */
+}
